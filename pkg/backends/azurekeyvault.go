@@ -42,7 +42,7 @@ func (a *AzureKeyVault) Login() error {
 func (a *AzureKeyVault) GetSecrets(kvpath string, version string, _ map[string]string) (map[string]interface{}, error) {
 	kvpath = fmt.Sprintf("https://%s.vault.azure.net", kvpath)
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 100*time.Second)
 	defer cancel()
 
 	verboseOptionalVersion("Azure Key Vault list all secrets from vault %s", version, kvpath)
